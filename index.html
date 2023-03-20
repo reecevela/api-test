@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Search</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <form>
+    <label for="search">Search Departments:</label>
+    <input type="text" id="search" name="search">
+  </form>
+  <ul id="results"></ul>
+
+  <script>
+    $(document).ready(() => {
+      $('#search').on('input', function() {
+        const searchTerm = $(this).val();
+        if (searchTerm.length < 2) {
+          $('#results').empty();
+          return;
+        }
+
+        $.ajax({
+          url: `http://localhost:3000/search?q=${searchTerm}`,
+          method: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            $('#results').empty();
+            data.forEach((department) => {
+              $('#results').append(`<li>${department.name}</li>`);
+            });
+          },
+          error: function(err) {
+            console.error(err);
+          },
+        });
+      });
+    });
+  </script>
+</body>
+</html>

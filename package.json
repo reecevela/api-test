@@ -1,0 +1,26 @@
+{
+  "name": "api-test",
+  "version": "1.0.0",
+  "description": "Learning how to set up an API",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reecevela/api-test.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Reece Vela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reecevela/api-test/issues"
+  },
+  "homepage": "https://github.com/reecevela/api-test#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
